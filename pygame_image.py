@@ -8,6 +8,7 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg")
 
     tmr = 0
+    x=0
 
     kk_imgbase=pg.image.load("fig/3.png")
     kk_img=pg.transform.flip(kk_imgbase,True,False)
@@ -17,8 +18,12 @@ def main():
             if event.type == pg.QUIT: return
 
         tmr += 1
+        if tmr >= 50:
+            x=1
+        else:
+            x=0
         screen.blit(bg_img, [0, 0])
-        screen.blit(kk_img,[500,500])
+        screen.blit(kk_imgs[x],[500,500])
         
         pg.display.update()
         clock.tick(100)
