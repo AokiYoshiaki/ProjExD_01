@@ -5,12 +5,12 @@ def main():
     pg.display.set_caption("はばたけ！こうかとん")
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
-    bg_img = pg.image.load("fig/pg_bg.jpg")
+    bg_img = pg.image.load("ProjExD2023/ex01-20230418/fig/pg_bg.jpg")
 
     tmr = 0
     x=0
 
-    kk_imgbase=pg.image.load("fig/3.png")
+    kk_imgbase=pg.image.load("ProjExD2023/ex01-20230418/fig/3.png")
     kk_img=pg.transform.flip(kk_imgbase,True,False)
     kk_imgs=[kk_img,pg.transform.rotozoom(kk_img,10,1.0)]
     while True:
@@ -18,12 +18,16 @@ def main():
             if event.type == pg.QUIT: return
 
         tmr += 1
-        if tmr >= 50:
-            x=1
-        else:
-            x=0
-        screen.blit(bg_img, [0, 0])
-        screen.blit(kk_imgs[x],[500,500])
+        if tmr % 50 ==0:
+            if x==0:
+                x=1
+            else:
+                x=0
+        if tmr == 1525:
+            tmr=0
+        screen.blit(bg_img, [-tmr, 0])
+        screen.blit(bg_img,[1525-tmr,0])
+        screen.blit(kk_imgs[x],[300,200])
         
         pg.display.update()
         clock.tick(100)
