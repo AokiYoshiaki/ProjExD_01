@@ -23,10 +23,11 @@ def main():
                 x=1
             else:
                 x=0
-        if tmr == 1525:
+        if tmr == 3200:
             tmr=0
         screen.blit(bg_img, [-tmr, 0])
-        screen.blit(bg_img,[1525-tmr,0])
+        screen.blit(pg.transform.flip(bg_img,True,False),[1600-tmr,0])
+        screen.blit(bg_img,[3200-tmr,0])
         screen.blit(kk_imgs[x],[300,200])
         
         pg.display.update()
