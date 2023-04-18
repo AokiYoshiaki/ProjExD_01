@@ -9,8 +9,8 @@ def main():
 
     tmr = 0
 
-    kk_img=pg.image.load("fig/3.png")
-    kk_img=pg.transform.flip(kk_img,True,False)
+    kk_imgbase=pg.image.load("fig/3.png")
+    kk_img=pg.transform.flip(kk_imgbase,True,False)
     
     while True:
         for event in pg.event.get():
@@ -18,6 +18,7 @@ def main():
 
         tmr += 1
         screen.blit(bg_img, [0, 0])
+        screen.blit(kk_img,[500,500])
 
         pg.display.update()
         clock.tick(100)
